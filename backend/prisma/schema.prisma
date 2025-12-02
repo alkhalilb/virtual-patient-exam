@@ -1,0 +1,122 @@
+// Prisma schema for Virtual Patient Physical Examination Simulator
+// This schema defines the database models based on the TypeScript types
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Main case model representing a virtual patient scenario
+model Case {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Demographics
+  age            Int
+  sex            String
+  chiefComplaint String
+
+  // History
+  hpi            String
+  pmh            String[]
+  medications    String[]
+  allergies      String[]
+  socialHistory  String
+  familyHistory  String
+
+  // Vital signs
+  bp   String
+  hr   Int
+  rr   Int
+  temp Float
+  spo2 Int
+
+  // Diagnosis and key findings
+  diagnosis    String
+  keyFindings  String[] // Array of ExamFinding IDs
+
+  // Relationships
+  findings ExamFinding[]
+  sessions StudentSession[]
+
+  @@index([createdAt])
+}
+
+// Individual examination finding for a case
+model ExamFinding {
+  id          String   @id @default(uuid())
+  caseId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Examination details
+  region      String // BodyRegion enum as string
+  maneuver    String // ManeuverType enum as string
+  target      String? // e.g., "mitral_area", "right_lower_lobe"
+  location    String? // specific location within region
+
+  // Finding content
+  findingType String // "audio" | "image" | "video" | "text"
+  mediaUrl    String? // URL to S3 or local media file
+  description String  @db.Text
+  isAbnormal  Boolean @default(false)
+
+  // Relationships
+  case               Case                 @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  performedManeuvers PerformedManeuver[]
+
+  @@index([caseId])
+  @@index([region, maneuver])
+}
+
+// Student examination session
+model StudentSession {
+  id        String   @id @default(uuid())
+  caseId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  startTime          DateTime  @default(now())
+  endTime            DateTime?
+  submittedDiagnosis String?
+
+  // Scoring (null until session is completed)
+  completeness      Int? // 0-100
+  efficiency        Int? // 0-100
+  diagnosisAccuracy Int? // 0-100
+  overallScore      Int? // 0-100
+  feedback          String[]
+
+  // Relationships
+  case               Case                @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  maneuversPerformed PerformedManeuver[]
+
+  @@index([caseId])
+  @@index([createdAt])
+}
+
+// Individual maneuver performed during a session
+model PerformedManeuver {
+  id        String   @id @default(uuid())
+  sessionId String
+  findingId String
+  createdAt DateTime @default(now())
+
+  timestamp   DateTime @default(now())
+  inputMethod String // "click" | "text"
+  rawInput    String? // if text input, store original
+
+  // Relationships
+  session StudentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  finding ExamFinding    @relation(fields: [findingId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([findingId])
+  @@index([timestamp])
+}

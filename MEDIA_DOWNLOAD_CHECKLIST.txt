@@ -1,0 +1,293 @@
+================================================================================
+MEDIA DOWNLOAD CHECKLIST - Virtual Patient Simulator
+================================================================================
+
+This checklist contains all the media files needed for the 3 cases (CHF, COPD,
+Pneumonia) with direct links to free sources.
+
+Follow this checklist to get your simulator fully functional!
+
+================================================================================
+AUDIO FILES NEEDED (5 files)
+================================================================================
+
+Place all audio files in: /media/audio/
+
+---
+[ ] 1. s3-gallop.mp3
+    Description: Third heart sound (S3 gallop) - ventricular gallop
+    Best Sources:
+    - https://teachingheartauscultation.com/heart-sounds-mp3-downloads
+    - https://www.thesimtech.org/thesimtechs-ambient-lung-breath-heart-and-baby-sounds-mp3-audio-database/
+    - https://archive.org/details/0056-0000-8039-0000-0-0000-0000-0
+    - https://www.practicalclinicalskills.com/cases/37/third-heart-sound-gallop
+
+    Instructions:
+    1. Visit one of the sources above
+    2. Find "S3" or "Third Heart Sound" or "Ventricular Gallop"
+    3. Download the MP3
+    4. Rename to: s3-gallop.mp3
+    5. Place in /media/audio/
+
+---
+[ ] 2. mitral-regurg-functional.mp3
+    Description: Mitral regurgitation murmur (holosystolic)
+    Best Sources:
+    - https://teachingheartauscultation.com/heart-sounds-mp3-downloads
+    - https://www.thesimtech.org/av-stimuli/audio/
+    - https://www.practicalclinicalskills.com/heart-sounds-audio
+
+    Instructions:
+    1. Visit one of the sources above
+    2. Find "Mitral Regurgitation" or "MR"
+    3. Download the MP3
+    4. Rename to: mitral-regurg-functional.mp3
+    5. Place in /media/audio/
+
+---
+[ ] 3. crackles-bilateral.mp3
+    Description: Fine crackles (rales) - inspiratory, like velcro
+    Best Sources:
+    - https://www.thesimtech.org/av-stimuli/audio/
+    - https://hawaiicopd.org/lung-sounds/
+    - https://medicalstudyzone.com/download-all-heart-and-respiratory-sounds-normal-abnormal-in-mp3-format-free/
+    - https://archive.org/details/0056-0000-8038-0000-0-0000-0000-0
+
+    Instructions:
+    1. Visit one of the sources above
+    2. Find "Fine Crackles" or "Rales" or "Crackles - Fine"
+    3. Download the MP3
+    4. Rename to: crackles-bilateral.mp3
+    5. Place in /media/audio/
+
+---
+[ ] 4. crackles-coarse.mp3
+    Description: Coarse crackles - lower pitched, bubbling sound
+    Best Sources:
+    - https://www.thesimtech.org/av-stimuli/audio/
+    - https://hawaiicopd.org/lung-sounds/
+    - https://medicalstudyzone.com/download-all-heart-and-respiratory-sounds-normal-abnormal-in-mp3-format-free/
+    - https://www.practicalclinicalskills.com/lung-sounds-audio
+
+    Instructions:
+    1. Visit one of the sources above
+    2. Find "Coarse Crackles" or "Crackles - Coarse"
+    3. Download the MP3
+    4. Rename to: crackles-coarse.mp3
+    5. Place in /media/audio/
+
+---
+[ ] 5. wheezes-expiratory.mp3
+    Description: Expiratory wheezes - high-pitched, musical sound
+    Best Sources:
+    - https://www.thesimtech.org/av-stimuli/audio/
+    - https://hawaiicopd.org/lung-sounds/
+    - https://medicalstudyzone.com/download-all-heart-and-respiratory-sounds-normal-abnormal-in-mp3-format-free/
+    - https://www.practicalclinicalskills.com/lung-sounds-audio
+
+    Instructions:
+    1. Visit one of the sources above
+    2. Find "Wheezes" or "Expiratory Wheeze"
+    3. Download the MP3
+    4. Rename to: wheezes-expiratory.mp3
+    5. Place in /media/audio/
+
+
+================================================================================
+IMAGE FILES NEEDED (3 files)
+================================================================================
+
+Place all image files in: /media/images/
+
+---
+[ ] 6. pitting-edema-bilateral.jpg
+    Description: Bilateral lower extremity pitting edema
+    Best Sources:
+    - https://commons.wikimedia.org/wiki/Category:Edema
+    - Search: "pitting edema legs"
+
+    Instructions:
+    1. Visit Wikimedia Commons
+    2. Search for "pitting edema" or "leg edema"
+    3. Find a clear photo showing bilateral leg swelling
+    4. Download the image
+    5. Rename to: pitting-edema-bilateral.jpg
+    6. Place in /media/images/
+
+    Alternative: Google Images search "pitting edema" and use a Creative Commons
+    licensed image
+
+---
+[ ] 7. jvd-elevated.jpg (OPTIONAL - mostly descriptive text)
+    Description: Jugular venous distention (JVD)
+    Best Sources:
+    - https://commons.wikimedia.org/
+    - Medical textbooks (with permission)
+    - Search: "jugular venous distention" or "JVD"
+
+    Instructions:
+    1. Visit Wikimedia Commons or Google Images (Creative Commons filter)
+    2. Search for "jugular venous distention"
+    3. Find a clear photo showing elevated JVP
+    4. Download the image
+    5. Rename to: jvd-elevated.jpg
+    6. Place in /media/images/
+
+    NOTE: This is optional - the text description is often sufficient for JVD
+
+---
+[ ] 8. barrel-chest.jpg
+    Description: Barrel chest deformity (increased AP diameter)
+    Best Sources:
+    - https://commons.wikimedia.org/wiki/Category:COPD
+    - Search: "barrel chest" or "COPD chest"
+
+    Instructions:
+    1. Visit Wikimedia Commons
+    2. Search for "barrel chest"
+    3. Find a clear lateral chest photo showing increased AP diameter
+    4. Download the image
+    5. Rename to: barrel-chest.jpg
+    6. Place in /media/images/
+
+
+================================================================================
+RECOMMENDED DOWNLOAD ORDER
+================================================================================
+
+Start with these high-priority sources (easiest to use):
+
+1. AUDIO: theSimTech Clinical Audio Database
+   https://www.thesimtech.org/av-stimuli/audio/
+   - Has most sounds in one place
+   - Free MP3 downloads
+   - Click three dots to download
+
+2. AUDIO: Hawaii COPD Coalition
+   https://hawaiicopd.org/lung-sounds/
+   - Great for lung sounds
+   - Clear MP3 format
+   - Well-labeled
+
+3. AUDIO: Medical Study Zone
+   https://medicalstudyzone.com/download-all-heart-and-respiratory-sounds-normal-abnormal-in-mp3-format-free/
+   - Comprehensive collection
+   - Direct downloads
+
+4. IMAGES: Wikimedia Commons
+   https://commons.wikimedia.org/
+   - Free to use
+   - Good quality
+   - Search by condition name
+
+
+================================================================================
+TESTING YOUR DOWNLOADS
+================================================================================
+
+After downloading all files:
+
+1. Verify file structure:
+   /media/
+   ├── audio/
+   │   ├── s3-gallop.mp3
+   │   ├── mitral-regurg-functional.mp3
+   │   ├── crackles-bilateral.mp3
+   │   ├── crackles-coarse.mp3
+   │   └── wheezes-expiratory.mp3
+   └── images/
+       ├── pitting-edema-bilateral.jpg
+       ├── jvd-elevated.jpg (optional)
+       └── barrel-chest.jpg
+
+2. Start backend server:
+   cd backend && npm run dev
+
+3. Test media URLs in browser:
+   http://localhost:3001/media/audio/s3-gallop.mp3
+   http://localhost:3001/media/images/pitting-edema-bilateral.jpg
+
+4. Run the app and perform examinations to see media appear!
+
+
+================================================================================
+QUICK ALTERNATIVE: CREATE PLACEHOLDERS
+================================================================================
+
+If you want to test the app before getting real media, create silent/blank files:
+
+AUDIO (Mac/Linux with ffmpeg):
+  ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -t 5 -q:a 9 -acodec libmp3lame media/audio/s3-gallop.mp3
+  (Repeat for other audio files)
+
+IMAGES (Mac/Linux with ImageMagick):
+  convert -size 400x300 xc:gray media/images/pitting-edema-bilateral.jpg
+  (Repeat for other images)
+
+
+================================================================================
+ESTIMATED TIME TO COMPLETE
+================================================================================
+
+- Audio files (5): ~15-20 minutes
+- Image files (3): ~10 minutes
+- Total: ~25-30 minutes
+
+TIPS:
+- Open multiple browser tabs for faster downloading
+- Use browser's "Save As" or right-click download
+- Check file extensions (.mp3 for audio, .jpg for images)
+- Make sure filenames match exactly (case-sensitive!)
+
+
+================================================================================
+HELP & TROUBLESHOOTING
+================================================================================
+
+Media not showing in app?
+- Check filenames match exactly
+- Verify files are in correct directories
+- Restart backend server after adding files
+- Check browser console for 404 errors
+
+Can't find a specific sound?
+- Try alternative sources listed above
+- Search on YouTube, download with youtube-dl
+- Contact your institution's simulation center
+
+Audio quality issues?
+- Most sources provide high-quality MP3 (128-320kbps)
+- Avoid highly compressed files
+- Stereo or mono both work fine
+
+Image quality issues?
+- Aim for at least 800x600 resolution
+- JPEG or PNG format both work
+- Clear, well-lit clinical photos are best
+
+
+================================================================================
+STATUS CHECKLIST
+================================================================================
+
+Audio Files:
+[ ] s3-gallop.mp3
+[ ] mitral-regurg-functional.mp3
+[ ] crackles-bilateral.mp3
+[ ] crackles-coarse.mp3
+[ ] wheezes-expiratory.mp3
+
+Image Files:
+[ ] pitting-edema-bilateral.jpg
+[ ] jvd-elevated.jpg (optional)
+[ ] barrel-chest.jpg
+
+Testing:
+[ ] Files in correct directories
+[ ] Backend server serves files correctly
+[ ] Media appears in app during examinations
+
+================================================================================
+DONE! Once you've downloaded these files, your Virtual Patient Simulator
+will be fully functional with realistic clinical media!
+================================================================================
