@@ -17,6 +17,9 @@
     "db:seed": "tsx prisma/seed.ts",
     "postinstall": "prisma generate"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "keywords": [
     "medical-education",
     "virtual-patient",
