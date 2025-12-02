@@ -62,12 +62,24 @@ export interface ExamFinding {
 export interface Case {
   id: string;
   title: string;
-  demographics: Demographics;
-  history: History;
-  vitals: VitalSigns;
-  findings: ExamFinding[];
+  // Flat structure matching Prisma model
+  age: number;
+  sex: string;
+  chiefComplaint: string;
+  hpi: string;
+  pmh: string[];
+  medications: string[];
+  allergies: string[];
+  socialHistory: string;
+  familyHistory: string;
+  bp: string;
+  hr: number;
+  rr: number;
+  temp: number;
+  spo2: number;
+  findings?: ExamFinding[];
   diagnosis: string;
-  keyFindings: string[]; // IDs of critical findings
+  keyFindings: string[];
 }
 
 export interface PerformedManeuver {
