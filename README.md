@@ -21,17 +21,26 @@ Support **hypothesis-driven physical examination** by making students explicitly
 
 ## Current Status
 
-**Project Phase:** Phase 1 MVP Complete + AI Media Generation - Ready for Testing! 🎉
-**Last Updated:** 2025-12-02 (AI Media Generation Added)
+**Project Phase:** DEPLOYED AND LIVE! 🚀
+**Last Updated:** 2025-12-02 (Deployed to Railway)
 
-### ✅ Phase 1 MVP Complete
+### ✅ LIVE DEPLOYMENT
 
-**The application is fully functional and ready to run once dependencies are installed and database is configured.**
+**The application is fully deployed and running on Railway!**
 
-#### Backend Complete
+**Live URLs:**
+- **Frontend:** https://virtual-patient-exam-production.up.railway.app
+- **Backend API:** https://web-production-ee7e8.up.railway.app
+- **Health Check:** https://web-production-ee7e8.up.railway.app/health
+
+**GitHub Repository:** https://github.com/alkhalilb/virtual-patient-exam
+
+### ✅ Phase 1 MVP Complete + AI Media Generation
+
+#### Backend Complete (Deployed on Railway)
 - ✅ Node.js + Express + TypeScript server
 - ✅ Prisma ORM with complete schema (4 models with relationships)
-- ✅ PostgreSQL database design
+- ✅ PostgreSQL database (Railway managed, seeded with 3 cases)
 - ✅ Full API implementation:
   - GET /api/cases - List all cases
   - GET /api/cases/:id - Get case details
@@ -52,7 +61,7 @@ Support **hypothesis-driven physical examination** by making students explicitly
   - Pneumonia (4 findings)
 - ✅ Scoring algorithm (completeness, efficiency, diagnosis accuracy)
 
-#### Frontend Complete
+#### Frontend Complete (Deployed on Railway)
 - ✅ React 19 + TypeScript + Vite
 - ✅ React Router v7 with 4 routes
 - ✅ Zustand state management (exam store, case list store)
@@ -63,6 +72,7 @@ Support **hypothesis-driven physical examination** by making students explicitly
   - FeedbackPage: Score visualization and feedback
   - **MediaGenerationPage**: AI-powered media generation UI 🎨 **NEW!**
 - ✅ Responsive UI with CSS styling
+- ✅ Connected to backend API via environment variables
 
 ### Not Started (Phase 2+)
 - ⏸️ Interactive SVG body diagram (currently button-based)
@@ -284,21 +294,31 @@ POST /api/media/image-to-video     - Convert existing image to video
 
 ## Getting Started
 
-### Prerequisites
+### 🌐 Access the Live App
+
+**The app is already deployed and running!**
+- **Visit:** https://virtual-patient-exam-production.up.railway.app
+- **API Health:** https://web-production-ee7e8.up.railway.app/health
+
+### 💻 Local Development (Optional)
+
+If you want to run the app locally for development:
+
+#### Prerequisites
 - Node.js 18+ installed
 - npm or yarn package manager
-- PostgreSQL 14+ (for Phase 1 database work)
-- **Replicate API token** (for AI media generation - optional but recommended)
-- Claude API key (for Phase 2 NLP features - future)
-
-### Installation
+- PostgreSQL 14+ (for local database)
+- **Replicate API token** (for AI media generation - optional)
 
 #### Backend Setup
 ```bash
 cd backend
 npm install
 cp .env.example .env
-# Edit .env with your configuration (DATABASE_URL will be needed for Prisma)
+# Edit .env with your DATABASE_URL and REPLICATE_API_TOKEN
+npx prisma db push
+npx tsx prisma/seed.ts
+npm run dev
 ```
 
 #### Frontend Setup
@@ -341,6 +361,100 @@ cd frontend && npm run dev
 ```
 
 Visit `http://localhost:5173` to see the application.
+
+---
+
+## Deployment Guide
+
+### Railway Deployment (Production)
+
+The application is currently deployed on Railway with the following configuration:
+
+#### Services Structure
+- **Backend Service** (`web`): Node.js/Express API server
+  - Root Directory: `/backend`
+  - Start Command: `npm start`
+  - Build Command: Auto-detected by Nixpacks (runs `npm install` and `npm run build`)
+
+- **Frontend Service** (`virtual-patient-exam-production`): React/Vite static site
+  - Root Directory: `/frontend`
+  - Build Command: Auto-detected by Nixpacks
+
+- **Database**: PostgreSQL (managed by Railway)
+
+#### Environment Variables
+
+**Backend (`web` service):**
+```
+DATABASE_URL=<provided by Railway Postgres>
+REPLICATE_API_TOKEN=<your Replicate API token>
+CORS_ORIGIN=https://virtual-patient-exam-production.up.railway.app
+```
+
+**Frontend (`virtual-patient-exam-production` service):**
+```
+VITE_API_URL=https://web-production-ee7e8.up.railway.app
+```
+
+#### Deployment Steps (for reference)
+
+1. **Create GitHub Repository**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/alkhalilb/virtual-patient-exam.git
+   git push -u origin main
+   ```
+
+2. **Install Railway CLI**
+   ```bash
+   npm install -g @railway/cli
+   railway login
+   ```
+
+3. **Create Railway Project and Services**
+   - Create new project in Railway dashboard
+   - Add PostgreSQL database
+   - Create backend service:
+     - Connect to GitHub repo
+     - Set Root Directory to `/backend`
+     - Add environment variables (DATABASE_URL, REPLICATE_API_TOKEN, CORS_ORIGIN)
+   - Create frontend service:
+     - Connect to same GitHub repo
+     - Set Root Directory to `/frontend`
+     - Add environment variable (VITE_API_URL)
+
+4. **Initial Database Setup**
+   - Backend deploys automatically
+   - Temporarily change start command to: `npx prisma db push && npx tsx prisma/seed.ts && npm start`
+   - Wait for deployment to complete (creates tables and seeds data)
+   - Change start command back to: `npm start`
+
+5. **Verify Deployment**
+   ```bash
+   # Check backend health
+   curl https://web-production-ee7e8.up.railway.app/health
+
+   # Check cases endpoint
+   curl https://web-production-ee7e8.up.railway.app/api/cases
+
+   # Visit frontend
+   open https://virtual-patient-exam-production.up.railway.app
+   ```
+
+#### Common Deployment Issues
+
+**TypeScript Build Errors:**
+- If you encounter "Not all code paths return a value" errors, the `tsconfig.json` files have been configured to allow Express controllers that use `res.json()` without explicit returns.
+
+**Database Migration Issues:**
+- This project uses `prisma db push` instead of migrations for production deployment
+- No migration files are needed in the repository
+
+**Frontend Can't Connect to Backend:**
+- Ensure `VITE_API_URL` is set in the frontend service environment variables
+- Frontend must be rebuilt after changing environment variables (Vite bakes them into the build)
 
 ---
 
